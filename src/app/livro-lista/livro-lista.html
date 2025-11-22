@@ -1,0 +1,54 @@
+<div class="catalogo-container">
+    <header class="catalogo-header">
+        <div class="header-content">
+            <h1 class="catalogo-title">
+                <i class="bi bi-book-fill"></i>
+                Catálogo de Livros
+            </h1>
+            <p class="catalogo-subtitle">Gerencie sua coleção de livros</p>
+        </div>
+    </header>
+
+    <main class="catalogo-main">
+        <div class="livros-grid" *ngIf="livros.length > 0; else semLivros">
+            <div class="livro-card" *ngFor="let livro of livros">
+                <div class="livro-card-header">
+                    <h3 class="livro-titulo">{{ livro.titulo }}</h3>
+                    <span class="editora-badge">{{ obterNome(livro.codigo) }}</span>
+                </div>
+
+                <div class="livro-card-body">
+                    <p class="livro-resumo">{{ livro.resumo }}</p>
+
+                    <div class="autores-section">
+                        <h4 class="autores-title">
+                            <i class="bi bi-people-fill"></i>
+                            Autores
+                        </h4>
+                        <ul class="autores-lista">
+                            <li *ngFor="let autor of livro.autores" class="autor-item">
+                                <i class="bi bi-person-fill"></i>
+                                {{ autor }}
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="livro-card-footer">
+                    <button class="btn-excluir" type="button" (click)="excluir(livro.codigo)">
+                        <i class="bi bi-trash-fill"></i>
+                        Excluir
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <ng-template #semLivros>
+            <div class="mensagem-vazia">
+                <i class="bi bi-book-fill"></i>
+                <h3>Nenhum livro encontrado</h3>
+                <p>Adicione um livro para começar</p>
+            </div>
+        </ng-template>
+    </main>
+</div>

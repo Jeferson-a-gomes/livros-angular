@@ -1,0 +1,24 @@
+<nav class="navbar">
+  <div class="nav-container">
+    <a class="nav-brand" routerLink="/lista">
+      <i class="bi bi-book-fill"></i>
+      Catálogo de Livros
+    </a>
+    <ul class="nav-menu">
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/lista" routerLinkActive="active">
+          <i class="bi bi-list-ul"></i>
+          <h2>Catálogo</h2>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/dados" routerLinkActive="active">
+          <i class="bi bi-plus-circle"></i>
+          <h2>Novo Livro</h2>
+        </a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<router-outlet></router-outlet>
